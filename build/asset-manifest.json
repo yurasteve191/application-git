@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ba00629d.css",
+    "main.js": "/static/js/main.2d7bd402.js",
+    "static/media/loader.gif": "/static/media/loader.7e2100c1c1fdc3e03b4a.gif",
+    "static/media/map.jpeg": "/static/media/map.478e90af882f5c3c1ac5.jpeg",
+    "static/media/new2.jpeg": "/static/media/new2.5d99cc2a7676dd349950.jpeg",
+    "static/media/new1.jpeg": "/static/media/new1.76241aff3fd2bb46dfd9.jpeg",
+    "static/media/MAK.woff": "/static/media/MAK.0f20b8b334bcf832b75c.woff",
+    "static/media/Nitti-Normal.woff": "/static/media/Nitti-Normal.493bbd06f4c101dc1ece.woff",
+    "static/media/1.jpeg": "/static/media/1.d0e4329a207f4bff04b4.jpeg",
+    "index.html": "/index.html",
+    "main.ba00629d.css.map": "/static/css/main.ba00629d.css.map",
+    "main.2d7bd402.js.map": "/static/js/main.2d7bd402.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba00629d.css",
+    "static/js/main.2d7bd402.js"
+  ]
+}
