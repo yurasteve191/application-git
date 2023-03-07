@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Orders
 import json
 
-from .servisec import get_categories_from_poster, get_goods_from_poster, sent_new_check_to_monobank_pay_and_get_data, create_new_check_in_poster_and_get_data, check_an_poster_order_by_id_and_get_status, check_an_poster_check_by_order_transaction_id_and_get_the_status, get_poster_order_transaction_id
+from .servises import *
 
 @csrf_exempt
 def order_status(request):
@@ -13,6 +13,13 @@ def order_status(request):
         invoice_ids = json.loads(orders_json)
         orders = Orders.objects.filter(invoiceId__in=invoice_ids)
         for order in orders:
+            if order.orderStatus == 'pay':
+                pay_result = check_the_order_for_pay_done_in_monobanl(order.invoiceId)
+                if pay_result['status'] == 'success':
+                    order = Orders.objects.get(orderId=order.orderId)
+                    order.orderStatus = 'prepearing'
+                    order.save()
+
             if order.orderStatus == 'waiting for approve':
                 if check_an_poster_order_by_id_and_get_status(order.orderId) == 1:
                     order = Orders.objects.get(orderId=order.orderId)
@@ -53,27 +60,6 @@ def create_order(request):
 def create_order_in_poster(request):
     payData = create_new_check_in_poster_and_get_data(request)
     return JsonResponse({'response': payData})
-
-@csrf_exempt 
-def delete_order(request):
-    orderId = request.POST.get('orderId')
-    print(orderId)
-    order = Orders.objects.get(orderId = orderId)
-    order.delete()
-    return JsonResponse({'response': True})
-
-
-
-@csrf_exempt
-def change_order_status(request):
-    if request.method == 'GET':
-        return JsonResponse({'fuck': 'you'})
-    
-    if request.method == 'POST':
-        print(request.POST)
-        return JsonResponse({'status': True})
-
-
 
 #
 def get_menu_from_poster(request):

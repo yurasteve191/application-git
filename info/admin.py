@@ -14,14 +14,14 @@ class NewsAdmin(admin.ModelAdmin):
         else:
             return "-"
     
-    thumbnail_html.short_description = "Thumbnail"
+    thumbnail_html.short_description = "Мініатюра"
     
 
 @admin.register(TopNews)
 class TopNewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'thumbnail_html', 'short_description', 'created_at')
+    list_display = ('thumbnail_html', 'short_description', 'created_at')
     list_filter = ('created_at',)
-    search_fields = ('title', 'short_description')
+    search_fields = ('short_description',)
 
     def thumbnail_html(self, obj):
         if obj.image:
@@ -29,4 +29,4 @@ class TopNewsAdmin(admin.ModelAdmin):
         else:
             return "-"
     
-    thumbnail_html.short_description = "Thumbnail"
+    thumbnail_html.short_description = "Мініатюра"

@@ -9,3 +9,6 @@ class Orders(models.Model):
     orderTransactionId = models.IntegerField(default=0, blank=True, null=True)
 
     created_at = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Замовлення !НЕ РЕДАГУВАТИ!'

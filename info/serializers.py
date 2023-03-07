@@ -9,4 +9,4 @@ class NewsSerializer(serializers.ModelSerializer):
 class TopNewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = TopNews
-        fields = ('title', 'short_description', 'image', 'created_at')
+        fields = ('short_description', 'image', 'created_at')

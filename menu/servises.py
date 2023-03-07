@@ -75,14 +75,13 @@ def create_new_check_in_poster_and_get_data(request):
 
     return response
 
-
 def check_an_poster_order_by_id_and_get_status(orderId):
     url = f'https://joinposter.com/api/incomingOrders.getIncomingOrder?token={_token}&incoming_order_id={orderId}'
     response = requests.get(url).json()
     return response['response']['status']
 
+
 def check_an_poster_check_by_order_transaction_id_and_get_the_status(transaction_id):
-    # print(transaction_id)
     order = Orders.objects.get(orderTransactionId = transaction_id)
     create_at_date = order.created_at.split()[0]
     create_at_date_dt = datetime.datetime.strptime(create_at_date, '%Y-%m-%d')
@@ -107,6 +106,14 @@ def check_an_poster_check_by_order_transaction_id_and_get_the_status(transaction
     except:pass
     
     return pay_type
+
+def check_the_order_for_pay_done_in_monobanl(invoiceId):
+    url = f'https://api.monobank.ua/api/merchant/invoice/status?invoiceId={invoiceId}'
+    headers = {
+        "X-Token": "u9Ae6ER_IPySY74IfQ0x_itBdlPOTC54VSap2ugn6RCs"
+    }
+    response = requests.get(url, headers=headers).json()
+    return (response)
 
 
 def get_poster_order_transaction_id(orderId):

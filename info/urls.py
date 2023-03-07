@@ -5,4 +5,5 @@ from .views import *
 urlpatterns = [
     path('getNews/', getNews),
     path('getTopNews/', getTopNews),
+    path('getQRCode/', createQrCode),
 ]
