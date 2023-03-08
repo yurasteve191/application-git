@@ -21,12 +21,22 @@ def order_status(request):
                     order.save()
 
             if order.orderStatus == 'waiting for approve':
-                if check_an_poster_order_by_id_and_get_status(order.orderId) == 1:
+                poster_check_result = check_an_poster_order_by_id_and_get_status(order.orderId)
+
+                if poster_check_result == 1:
                     order = Orders.objects.get(orderId=order.orderId)
                     #отримує orderTransactionId
                     transactionId = get_poster_order_transaction_id(order.orderId)
                     order.orderTransactionId = transactionId
                     order.orderStatus = 'approved'
+                    order.save()
+
+                if poster_check_result == 7:
+                    order = Orders.objects.get(orderId=order.orderId)
+                    #отримує orderTransactionId
+                    transactionId = get_poster_order_transaction_id(order.orderId)
+                    order.orderTransactionId = transactionId
+                    order.orderStatus = 'canceled'
                     order.save()
                 
             if order.orderStatus == 'approved':
@@ -47,14 +57,14 @@ def create_order(request):
         if(type == 'monobank'):
             payData = sent_new_check_to_monobank_pay_and_get_data(request)
             # print(payData)
-            return JsonResponse({'response': payData})
+            return JsonResponse({'result':True, 'response': payData})
         
         if(type == 'cripto'):
             payData = False
-            return JsonResponse({'response': payData})
+            return JsonResponse({'result':True, 'response': payData})
         
         else:
-            return JsonResponse({'response': False})
+            return JsonResponse({'result':False, 'response': False})
       
 @csrf_exempt  
 def create_order_in_poster(request):

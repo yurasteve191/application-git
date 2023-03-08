@@ -23,9 +23,6 @@ class TopNews(models.Model):
     image = models.ImageField(upload_to='topNews/%Y/%m/%d/')
     created_at = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
 
-    def __str__(self):
-        return self.title
-    
     class Meta:
         verbose_name_plural = 'Новини - слайди'
     
