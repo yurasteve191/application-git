@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.40ef9771.css",
-    "main.js": "/static/js/main.59bdba7b.js",
+    "main.css": "/static/css/main.4a1a53bd.css",
+    "main.js": "/static/js/main.b2ef2e44.js",
     "static/media/loader.gif": "/static/media/loader.7e2100c1c1fdc3e03b4a.gif",
     "static/media/map.jpeg": "/static/media/map.478e90af882f5c3c1ac5.jpeg",
     "static/media/new2.jpeg": "/static/media/new2.5d99cc2a7676dd349950.jpeg",
@@ -10,11 +10,11 @@
     "static/media/Nitti-Normal.woff": "/static/media/Nitti-Normal.493bbd06f4c101dc1ece.woff",
     "static/media/1.jpeg": "/static/media/1.d0e4329a207f4bff04b4.jpeg",
     "index.html": "/index.html",
-    "main.40ef9771.css.map": "/static/css/main.40ef9771.css.map",
-    "main.59bdba7b.js.map": "/static/js/main.59bdba7b.js.map"
+    "main.4a1a53bd.css.map": "/static/css/main.4a1a53bd.css.map",
+    "main.b2ef2e44.js.map": "/static/js/main.b2ef2e44.js.map"
   },
   "entrypoints": [
-    "static/css/main.40ef9771.css",
-    "static/js/main.59bdba7b.js"
+    "static/css/main.4a1a53bd.css",
+    "static/js/main.b2ef2e44.js"
   ]
 }

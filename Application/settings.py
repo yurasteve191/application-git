@@ -32,7 +32,7 @@ MONOBANK_TOKEN = ''
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '195.74.86.186']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '195.74.86.186','informatyka.space']
 
 
 # Application definition
