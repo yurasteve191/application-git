@@ -4,7 +4,7 @@ from .models import News, TopNews, Actions, Music
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'thumbnail_html', 'short_description', 'created_at')
+    list_display = ('id', 'title', 'thumbnail_html', 'short_description', 'created_at')
     list_filter = ('created_at',)
     search_fields = ('title', 'short_description', 'full_description')
 
@@ -18,7 +18,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(Actions)
 class ActionsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'thumbnail_html', 'short_description', 'created_at')
+    list_display = ('id', 'title', 'thumbnail_html', 'short_description', 'created_at')
     list_filter = ('created_at',)
     search_fields = ('title', 'short_description', 'full_description')
 
@@ -32,7 +32,7 @@ class ActionsAdmin(admin.ModelAdmin):
     
 @admin.register(Music)
 class MusicAdmin(admin.ModelAdmin):
-    list_display = ('title', 'thumbnail_html', 'short_description', 'created_at')
+    list_display = ('id', 'title', 'thumbnail_html', 'short_description', 'created_at')
     list_filter = ('created_at',)
     search_fields = ('title', 'short_description', 'full_description')
 
